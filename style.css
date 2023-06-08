@@ -25,9 +25,13 @@ body {
 }
 
 .card img {
+    display: none;
     width: 100%;
     height: 100%;
     background-position: center;
     background-size: cover;
 }
 
+.card.show img {
+    display: block;
+}

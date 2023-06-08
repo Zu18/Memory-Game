@@ -21,10 +21,16 @@ const memoryGameContainer = document.querySelector('.memory-game');
 for (let i = 0; i < numCards; i++) {
   const card = document.createElement('div');
   card.className = 'card';
+
   const image = document.createElement('img');
   image.src = cardValues[i];
 
   card.appendChild(image);
   memoryGameContainer.appendChild(card);
+
+  // Show/hide  each card's value (image) on click
+  card.addEventListener('click', function() {
+    this.classList.toggle('show');
+  });
 }
 
