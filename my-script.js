@@ -3,14 +3,14 @@ const numCards = 16;
 
 // Create an array with pairs of card values
 const cardValues = [
-  'A', 'A',
-  'B', 'B',
-  'C', 'C',
-  'D', 'D',
-  'E', 'E',
-  'F', 'F',
-  'G', 'G',
-  'H', 'H'
+  'images/2_of_clubs.png', 'images/2_of_clubs.png',
+  'images/3_of_clubs.png', 'images/3_of_clubs.png',
+  'images/2_of_diamonds.png', 'images/2_of_diamonds.png',
+  'images/3_of_diamonds.png', 'images/3_of_diamonds.png',
+  'images/2_of_hearts.png', 'images/2_of_hearts.png',
+  'images/3_of_hearts.png', 'images/3_of_hearts.png',
+  'images/2_of_spades.png', 'images/2_of_spades.png',
+  'images/3_of_spades.png', 'images/3_of_spades.png'
 ];
 
 
@@ -21,7 +21,10 @@ const memoryGameContainer = document.querySelector('.memory-game');
 for (let i = 0; i < numCards; i++) {
   const card = document.createElement('div');
   card.className = 'card';
-  card.textContent = cardValues[i];
+  const image = document.createElement('img');
+  image.src = cardValues[i];
+
+  card.appendChild(image);
   memoryGameContainer.appendChild(card);
 }
 
