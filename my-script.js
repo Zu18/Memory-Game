@@ -16,6 +16,8 @@ const cardValues = [
 // Create an array to keep the open cards
 let openCards = [];
 
+// Create a variable to count the number of open cards
+let openCardsCount = 0;
 
 // Get the memory game container element
 const memoryGameContainer = document.querySelector('.memory-game');
@@ -30,6 +32,7 @@ for (let i = 0; i < numCards; i++) {
 
   card.appendChild(image);
   memoryGameContainer.appendChild(card);
+
 
   // Show/hide/match each card's value (image) on click
   card.addEventListener('click', function () {
@@ -50,7 +53,16 @@ for (let i = 0; i < numCards; i++) {
           // If the cards match, mark them as matched
           openCards.forEach(card => card.classList.add('matched'));
           openCards = [];
+          openCardsCount += 2;
           console.log('Cards matched')
+          console.log(openCardsCount)
+          if (openCardsCount === numCards) {
+            // Delay alert execution to open the last card
+            setTimeout(() => {
+              // Display a winning message
+              alert('Alert');
+            }, 100);
+          }
         } else {
           console.log('Cards are different')
           // If the cards don't match, hide them after a short delay
