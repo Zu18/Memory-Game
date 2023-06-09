@@ -35,3 +35,7 @@ body {
 .card.show img {
     display: block;
 }
+
+.card.matched {
+    cursor: default;
+  }
