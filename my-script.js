@@ -19,6 +19,17 @@ let openCards = [];
 // Create a variable to count the number of open cards
 let openCardsCount = 0;
 
+// Create  and display a variable to track the number of moves
+let movesCount = 0;
+const moves = document.getElementById("moves-count");
+moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+
+//For calculating moves
+const movesCounter = () => {
+  movesCount += 1;
+  moves.innerHTML = `<span>Moves:</span>${movesCount}`;
+};
+
 // Get the memory game container element
 const memoryGameContainer = document.querySelector('.memory-game');
 
@@ -44,6 +55,9 @@ for (let i = 0; i < numCards; i++) {
       console.log('Show the card')
       if (openCards.length === 2) {
         console.log('Two cards are open')
+        // Count the moves
+        movesCounter();
+        console.log(movesCount)
         // Get the card values for comparison
         const cardValue1 = openCards[0].querySelector('img').src;
         const cardValue2 = openCards[1].querySelector('img').src;
@@ -57,10 +71,10 @@ for (let i = 0; i < numCards; i++) {
           console.log('Cards matched')
           console.log(openCardsCount)
           if (openCardsCount === numCards) {
-            // Delay alert execution to open the last card
+            // Delay an alert execution to open the last card
             setTimeout(() => {
-              // Display a winning message
-              alert('Alert');
+              // Display a winning message in backticks to display the numbers of moves.
+              alert(`You won. Moves: ${movesCount}`);
             }, 100);
           }
         } else {
