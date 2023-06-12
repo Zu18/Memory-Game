@@ -39,7 +39,7 @@ function shuffleArray(array) {
 }
 
 // Shuffle the card values
-shuffleArray(cardValues);
+//shuffleArray(cardValues);
 
 // Get the memory game container element
 const memoryGameContainer = document.querySelector('.memory-game');
@@ -85,7 +85,9 @@ for (let i = 0; i < numCards; i++) {
             // Delay an alert execution to open the last card
             setTimeout(() => {
               // Display a winning message in backticks to display the numbers of moves.
-              alert(`You won. Moves: ${movesCount}`);
+              alert(`You won. Moves: ${movesCount}! Click OK to start new game!`);
+              // Reload the page
+              window.location.reload();
             }, 100);
           }
         } else {
