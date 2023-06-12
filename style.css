@@ -3,7 +3,7 @@ body {
 }
 
 .sheet-body {
-    padding: 50px 16px 50px 16px;
+    padding: 30px 16px 50px 16px;
     max-width: 980px;
     margin: auto;
     background-color: orange;
@@ -49,4 +49,14 @@ body {
 .stats-box span {
     font-weight: 600;
     color: rgb(0, 17, 255);
+}
+
+h1, p {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0px;
+    line-height: 1.5;
 }
