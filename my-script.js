@@ -30,6 +30,17 @@ const movesCounter = () => {
   moves.innerHTML = `<span>Moves:</span>${movesCount}`;
 };
 
+// Function to shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+// Shuffle the card values
+shuffleArray(cardValues);
+
 // Get the memory game container element
 const memoryGameContainer = document.querySelector('.memory-game');
 
@@ -90,3 +101,4 @@ for (let i = 0; i < numCards; i++) {
     }
   });
 }
+
