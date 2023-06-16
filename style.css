@@ -3,8 +3,8 @@ body {
 }
 
 .sheet-body {
-    padding: 30px 16px 50px 16px;
-    max-width: 980px;
+    padding: 0px 16px 30px 16px;
+    max-width: 780px;
     margin: auto;
     background-color: orange;
 }
@@ -19,7 +19,7 @@ body {
 
 .card {
     width: 100%;
-    height: 120px;
+    height: 145px;
     background-image: url('images/card-cover.jpg');
     background-size: cover;
     cursor: pointer;
@@ -31,6 +31,7 @@ body {
     height: 100%;
     background-position: center;
     background-size: cover;
+    background-color: wheat
 }
 
 .card.show img {
@@ -43,7 +44,7 @@ body {
 
 .stats-box {
     text-align: right;
-    margin-bottom: 1.2em;
+    margin-bottom: 15px;
 }
 
 .stats-box span {
@@ -53,6 +54,8 @@ body {
 
 h1, p {
     text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 footer {

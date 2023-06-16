@@ -3,14 +3,14 @@ const numCards = 16;
 
 // Create an array with pairs of card values
 const cardValues = [
-  'images/2_of_clubs.png', 'images/2_of_clubs.png',
-  'images/3_of_clubs.png', 'images/3_of_clubs.png',
-  'images/2_of_diamonds.png', 'images/2_of_diamonds.png',
-  'images/3_of_diamonds.png', 'images/3_of_diamonds.png',
-  'images/2_of_hearts.png', 'images/2_of_hearts.png',
-  'images/3_of_hearts.png', 'images/3_of_hearts.png',
-  'images/2_of_spades.png', 'images/2_of_spades.png',
-  'images/3_of_spades.png', 'images/3_of_spades.png'
+  'images/cute-turtle-baby.png', 'images/cute-turtle-baby.png',
+  'images/dragon.png', 'images/dragon.png',
+  'images/owl.png', 'images/owl.png',
+  'images/cat.png', 'images/cat.png',
+  'images/tiger.png', 'images/tiger.png',
+  'images/snake.png', 'images/snake.png',
+  'images/giraffe.png', 'images/giraffe.png',
+  'images/fox.png', 'images/fox.png'
 ];
 
 // Create an array to keep the open cards
