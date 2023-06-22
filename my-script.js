@@ -3,7 +3,7 @@ const numCards = 16;
 
 // Create an array with pairs of card values
 const cardValues = [
-  'images/cute-turtle-baby.png', 'images/cute-turtle-baby.png',
+  'images/sheep.png', 'images/sheep.png',
   'images/dragon.png', 'images/dragon.png',
   'images/owl.png', 'images/owl.png',
   'images/cat.png', 'images/cat.png',
@@ -36,6 +36,29 @@ function shuffleArray(array) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
+}
+
+// Function to display a winning message
+function showModal() {
+  const modal = document.getElementById('modal');
+  modal.style.display = 'block';
+  const modalContentText = document.getElementById('modal-content-text');
+  modalContentText.textContent = `Moves: ${movesCount}`;
+}
+
+// Function to close a winning message and restart game
+function closeModal() {
+  const modal = document.getElementById('modal');
+  modal.style.display = 'none';
+}
+
+// Create button to close a winning message
+const closeButton = document.querySelector('.close');
+closeButton.addEventListener('click', closeModal);
+
+function startNewGame() {
+  // Perform the window reset logic here
+  window.location.reload();
 }
 
 // Shuffle the card values
@@ -83,12 +106,13 @@ for (let i = 0; i < numCards; i++) {
           console.log(openCardsCount)
           if (openCardsCount === numCards) {
             // Delay an alert execution to open the last card
-            setTimeout(() => {
+            //setTimeout(() => {
               // Display a winning message in backticks to display the numbers of moves.
-              alert(`You won. Moves: ${movesCount}! Click OK to start new game!`);
+              //alert(`You won. Moves: ${movesCount}! Click OK to start new game!`);
+              showModal()
               // Reload the page
-              window.location.reload();
-            }, 100);
+              //window.location.reload();
+            //}, 100);
           }
         } else {
           console.log('Cards are different')
