@@ -43,7 +43,7 @@ function showModal() {
   const modal = document.getElementById('modal');
   modal.style.display = 'block';
   const modalContentText = document.getElementById('modal-content-text');
-  modalContentText.textContent = `Moves: ${movesCount}`;
+  modalContentText.textContent = `You have won the game! Moves: ${movesCount}!`;
 }
 
 // Function to close a winning message and restart game
