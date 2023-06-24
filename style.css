@@ -85,13 +85,13 @@ footer {
     padding: 20px;
     border: 1px solid #888;
     width: 50%;
-    text-align: center; 
+    text-align: center;
 }
 
 .close {
     float: right;
     cursor: pointer;
-    color:red;
+    color: red;
     font-size: 24px;
     font-weight: bold;
 }
@@ -105,4 +105,15 @@ button {
     background-color: #e0dddd;
     font-size: 16px;
     border-radius: 7%;
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        height: 100px;
+    }
+
+    h1,
+    p {
+        margin-top: 15px;
+    }
 }

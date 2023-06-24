@@ -62,7 +62,7 @@ function startNewGame() {
 }
 
 // Shuffle the card values
-//shuffleArray(cardValues);
+shuffleArray(cardValues);
 
 // Get the memory game container element
 const memoryGameContainer = document.querySelector('.memory-game');
