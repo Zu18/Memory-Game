@@ -19,7 +19,7 @@ body {
 .card {
     width: 100%;
     height: 145px;
-    background-image: url('images/Bear28_generated.jpg');
+    background-image: url('images/card-cover-bear.jpg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
