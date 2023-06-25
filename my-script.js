@@ -46,20 +46,61 @@ function showModal() {
   modalContentText.textContent = `You have won the game! Moves: ${movesCount}!`;
 }
 
+// Create button to close a winning message
+const closeButton = document.querySelector('.close');
+closeButton.addEventListener('click', closeModal);
+
 // Function to close a winning message and restart game
 function closeModal() {
   const modal = document.getElementById('modal');
   modal.style.display = 'none';
 }
 
-// Create button to close a winning message
-const closeButton = document.querySelector('.close');
-closeButton.addEventListener('click', closeModal);
-
 function startNewGame() {
   // Perform the window reset logic here
   window.location.reload();
 }
+
+// Create the cards
+function createCard(cardValue) {
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  const image = document.createElement('img');
+  image.src = cardValue;
+
+  card.appendChild(image);
+  return card;
+}
+
+function showCard(card) {
+  card.classList.add('show');
+}
+
+function addCardToOpenCards(card) {
+  openCards.push(card);
+}
+
+// Add matched for the same cards(image) and count the matched cards.
+function matchCards() {
+  openCards.forEach(card => card.classList.add('matched'));
+  openCards = [];
+  openCardsCount += 2;
+ // Display the winning message if all cards matched/open
+  if (openCardsCount === numCards) {
+    showModal();
+  }
+}
+
+function closeCards() {
+  // If the cards don't match, hide them after a short delay
+  setTimeout(() => {
+    openCards.forEach(card => card.classList.remove('show'));
+    openCards = [];
+  }, 1000);
+}
+
+
 
 // Shuffle the card values
 shuffleArray(cardValues);
@@ -69,59 +110,26 @@ const memoryGameContainer = document.querySelector('.memory-game');
 
 // Create the cards and add them to the container
 for (let i = 0; i < numCards; i++) {
-  const card = document.createElement('div');
-  card.className = 'card';
-
-  const image = document.createElement('img');
-  image.src = cardValues[i];
-
-  card.appendChild(image);
+  const card = createCard(cardValues[i]);
   memoryGameContainer.appendChild(card);
-
 
   // Show/hide/match each card's value (image) on click
   card.addEventListener('click', function () {
-    console.log('Card clicked')
     if (openCards.length < 2 && !this.classList.contains('show') && !this.classList.contains('matched')) {
-      console.log('This card is not shown')
-      this.classList.add('show');
-      openCards.push(this);
-      console.log('Show the card')
+      showCard(card);
+      addCardToOpenCards(card);
       if (openCards.length === 2) {
-        console.log('Two cards are open')
         // Count the moves
         movesCounter();
-        console.log(movesCount)
         // Get the card values for comparison
         const cardValue1 = openCards[0].querySelector('img').src;
         const cardValue2 = openCards[1].querySelector('img').src;
-        console.log(`cardValue1 ${cardValue1} and cardValue2 ${cardValue2}`)
         if (cardValue1 === cardValue2) {
-          console.log('Cards are the same')
-          // If the cards match, mark them as matched
-          openCards.forEach(card => card.classList.add('matched'));
-          openCards = [];
-          openCardsCount += 2;
-          console.log('Cards matched')
-          console.log(openCardsCount)
-          if (openCardsCount === numCards) {
-            // Delay an alert execution to open the last card
-            //setTimeout(() => {
-              // Display a winning message in backticks to display the numbers of moves.
-              //alert(`You won. Moves: ${movesCount}! Click OK to start new game!`);
-              showModal()
-              // Reload the page
-              //window.location.reload();
-            //}, 100);
+          // If the cards match, mark them as matched; count the open cards + show the winnig message
+          matchCards();
           }
-        } else {
-          console.log('Cards are different')
-          // If the cards don't match, hide them after a short delay
-          setTimeout(() => {
-            openCards.forEach(card => card.classList.remove('show'));
-            openCards = [];
-            console.log('Cards closed')
-          }, 1000);
+         else {
+          closeCards();
         }
       }
     }
