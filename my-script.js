@@ -48,11 +48,11 @@ function showModal() {
   modal.style.display = 'block';
   const modalContentText = document.getElementById('modal-content-text');
   modalContentText.textContent = `You have won the game! Moves: ${movesCount}!`;
-}
 
-// Create button to close a winning message
-const closeButton = document.querySelector('.close');
-closeButton.addEventListener('click', closeModal);
+  // Create button to close a winning message
+  const closeButton = document.querySelector('.close');
+  closeButton.addEventListener('click', closeModal);
+}
 
 // Function to close a winning message and restart game
 function closeModal() {
@@ -65,14 +65,12 @@ function startNewGame() {
   window.location.reload();
 }
 
-// Create the cards
+// Create a card (placeholder)
 function createCard(cardValue) {
   const card = document.createElement('div');
   card.className = 'card';
-
   const image = document.createElement('img');
   image.src = cardValue;
-
   card.appendChild(image);
   return card;
 }
@@ -86,7 +84,7 @@ function addCardToOpenCards(card) {
 }
 
 // Add matched for the same cards(image) and count the matched cards.
-function matchCards() {
+function markMatchedCards() {
   openCards.forEach(card => card.classList.add('matched'));
   openCards = [];
   openCardsCount += 2;
@@ -104,12 +102,31 @@ function closeCards() {
   }, 1000);
 }
 
+// Show/hide/match each card's value (image) on click
+function cardClick(card) {
+  if (openCards.length < 2 && !card.classList.contains('show') && !card.classList.contains('matched')) {
+    showCard(card);
+    addCardToOpenCards(card);
+    if (openCards.length === 2) {
+      // Count the moves
+      movesCounter();
+      // Get the card values for comparison
+      const cardValue1 = openCards[0].querySelector('img').src;
+      const cardValue2 = openCards[1].querySelector('img').src;
+      if (cardValue1 === cardValue2) {
+        // If the cards match, mark them as matched; count the open cards + show the winnig message
+        markMatchedCards();
+      }
+      else {
+        closeCards();
+      }
+    }
+  }
+}
 
 
-// Shuffle the card values
+
 shuffleArray(cardValues);
-
-// Display the number of moves
 displayMoves();
 
 // Get the memory game container element
@@ -122,24 +139,7 @@ for (let i = 0; i < numCards; i++) {
 
   // Show/hide/match each card's value (image) on click
   card.addEventListener('click', function () {
-    if (openCards.length < 2 && !this.classList.contains('show') && !this.classList.contains('matched')) {
-      showCard(card);
-      addCardToOpenCards(card);
-      if (openCards.length === 2) {
-        // Count the moves
-        movesCounter();
-        // Get the card values for comparison
-        const cardValue1 = openCards[0].querySelector('img').src;
-        const cardValue2 = openCards[1].querySelector('img').src;
-        if (cardValue1 === cardValue2) {
-          // If the cards match, mark them as matched; count the open cards + show the winnig message
-          matchCards();
-        }
-        else {
-          closeCards();
-        }
-      }
-    }
+    cardClick(card);
   });
 }
 
