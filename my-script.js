@@ -19,15 +19,19 @@ let openCards = [];
 // Create a variable to count the number of open cards
 let openCardsCount = 0;
 
-// Create  and display a variable to track the number of moves
+// Create a variable to track the number of moves
 let movesCount = 0;
-const moves = document.getElementById("moves-count");
-moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+
+// Display the number of moves
+function displayMoves() {
+  const moves = document.getElementById("moves-count");
+  moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+}
 
 //For calculating moves
-const movesCounter = () => {
+function movesCounter() {
   movesCount += 1;
-  moves.innerHTML = `<span>Moves:</span>${movesCount}`;
+  displayMoves();
 };
 
 // Function to shuffle an array using Fisher-Yates algorithm
@@ -86,7 +90,7 @@ function matchCards() {
   openCards.forEach(card => card.classList.add('matched'));
   openCards = [];
   openCardsCount += 2;
- // Display the winning message if all cards matched/open
+  // Display the winning message if all cards matched/open
   if (openCardsCount === numCards) {
     showModal();
   }
@@ -104,6 +108,9 @@ function closeCards() {
 
 // Shuffle the card values
 shuffleArray(cardValues);
+
+// Display the number of moves
+displayMoves();
 
 // Get the memory game container element
 const memoryGameContainer = document.querySelector('.memory-game');
@@ -127,8 +134,8 @@ for (let i = 0; i < numCards; i++) {
         if (cardValue1 === cardValue2) {
           // If the cards match, mark them as matched; count the open cards + show the winnig message
           matchCards();
-          }
-         else {
+        }
+        else {
           closeCards();
         }
       }
