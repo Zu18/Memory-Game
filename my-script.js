@@ -102,9 +102,14 @@ function closeCards() {
   }, 1000);
 }
 
+// Check if the card is closed
+function isClose(card) {
+  return !card.classList.contains('show')
+}
+
 // Show/hide/match each card's value (image) on click
 function cardClick(card) {
-  if (openCards.length < 2 && !card.classList.contains('show') && !card.classList.contains('matched')) {
+  if (openCards.length < 2 && isClose(card) ) {
     showCard(card);
     addCardToOpenCards(card);
     if (openCards.length === 2) {
