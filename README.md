@@ -12,7 +12,7 @@ To create this game I used vanilla(plain) JavaScript, HTML, and CSS. During the 
 
 ## Step-by-step process:
 
-1. Sketch a web page on the paper.
+1. Sketch the game on the paper.
 2. Build basic elements of the HTML page (header, body, footer) and add images for testing purposes.
 3. Add the game board and cards by using the appendChild() method.
 4. Show/hide each card's value (image) on click by using the classList.toggle('show').
