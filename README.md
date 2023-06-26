@@ -25,6 +25,8 @@ To create this game I used vanilla(plain) JavaScript, HTML, and CSS. During the 
 11. Remove the alert message, and implement modal message for the winning message 
 12. Change the height of cards for screens less than 600px.
 13. Clean up the code.
+14. Published the game on https://zu18.github.io/Memory-Game/
+
 
 ## How to play the memory game. 
 - You have to start the game by flipping over one card.
