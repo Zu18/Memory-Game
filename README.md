@@ -42,6 +42,12 @@ will disappear.
 
 ![Winning message](<screenshoots/Winning message.png>)
 
+## Things to improve:
+1. Create an array of unique cards, randomly select 8 cards, and then double the number of cards by creating pairs for a memory game. 
+2. Make difficulty levels by increasing the number of cards.
+3. Implement a table of the best players and their scores.
+
+
 
 
 
